@@ -1,0 +1,81 @@
+﻿1. Load the CSV files, which hold the Statcast data for each player, into pandas DataFrames.
+* Load datasets/judge.csv into a DataFrame and assign it to the variable judge.
+* Load datasets/stanton.csv into a DataFrame and assign it to the variable stanton.
+
+
+2. Display the last five rows of the judge DataFrame.
+* Use pandas' tail method to display the last five rows of judge.
+
+
+3. Isolate each player's batted ball events for the 2017 season.
+* Filter judge to include pitches from 2017 only and select the events column. Store the result in a variable called judge_events_2017.
+* Using the value_counts method, print out the count of unique values for judge_events_2017.
+* Filter stanton to include pitches from 2017 only and select the events column. Store the result in a variable called stanton_events_2017.
+* Using the value_counts method, print out the count of unique values for stanton_events_2017.
+
+
+
+
+4. Isolate each player's home runs then plot exit velocity vs. launch angle.
+* Filter the judge and stanton DataFrames to include home runs only.
+* Create a figure using seaborn's regplotfunction with two scatter plots of launch speed vs. launch angle, one for each player's home runs.
+* Create a figure using seaborn's kdeplotfunction with two KDE plots of launch speed vs. launch angle, one for each player's home runs.
+________________
+
+
+Exit velocity is also known as launch speed, where launch_speed is the name of the column in each file.
+5. Plot the pitch velocities of each player's home runs on box plots.
+* Concatenate judge_hr and stanton_hrusing pandas' concat function and store the result in a variable called judge_stanton_hr.
+* Create a boxplot using seaborn's boxplotfunction that describes the pitch velocity of each player's home runs. Make the color argument 'tab:blue'.
+________________
+
+
+Pitch velocity is also known as release speed, where release_speed is the name of the column in each file.
+
+
+
+
+6. Create a function that returns the x-coordinate of a pitch zone.
+* Return the x-coordinate for the left third of strike zone.
+* Return the x-coordinate for the middle third of strike zone.
+* Return the x-coordinate for the right third of strike zone.
+________________
+
+
+While you should ignore zones 11, 12, 13, and 14 for this plotting task, setting up conditionals to filter these out now isn't necessary. That will come in an upcoming task!
+zone is the name of the column that holds each pitch's zone data.
+It may be helpful to draw the zone and label the x- and y-coordinates by hand.
+
+
+
+
+7. Create a function that returns the y-coordinate of a pitch zone.
+* Return the y-coordinate for the upper third of strike zone.
+* Return the y-coordinate for the middle third of strike zone.
+* Return the y-coordinate for the lower third of strike zone.
+________________
+
+
+While you should ignore zones 11, 12, 13, and 14 for this plotting task, setting up conditionals to filter these out now isn't necessary. That will come in an upcoming task!
+zone is the name of the column that holds each pitch's zone data.
+It may be helpful to draw the zone and label the x- and y-coordinates by hand.
+
+
+
+
+8. Assign Cartesian coordinates to the strike zone and plot pitches that resulted in Judge home runs as a 2D histogram.
+* Apply assign_x_coord to judge_strike_hrto create a new column called zone_x.
+* Apply assign_y_coord to judge_strike_hrto create a new column called zone_y.
+* Plot Judge's home run zone as a 2D histogram (using matplotlib's hist2d function) with a colorbar.
+
+
+
+
+9. Assign Cartesian coordinates to the strike zone and plot pitches that resulted in Stanton home runs as a 2D histogram.
+* Apply assign_x_coord to stanton_strike_hrto create a new column called zone_x.
+* Apply assign_y_coord to stanton_strike_hrto create a new column called zone_y.
+* Plot Stanton's home run zone as a 2D histogram (using matplotlib's hist2d function) with a colorbar.
+
+
+10. Answer the following question: "Should opposing pitchers be wary of Aaron Judge and Giancarlo Stanton?"
+* Store a Boolean value (True or False) in should_pitchers_be_scared.
